@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Tugas 1 (dimodifikasi)</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-radius: 18px;
+            overflow: hidden; 
+        }
+
+        .judul-wrapper {
+            background-color: #a2266c;    
+            padding: 20px 20px;
+            text-align: center;            
+            border-bottom: 4px solid #f1c40f;
+        }
+
+        .judul-wrapper h1 {
+            margin: 0;
+            color: #f7f9fc;            
+            font-size: 2.4rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-shadow: 2px 2px 0 #1a2632;
+        }
+
+        .konten-biodata {
+            background-color: #ecf0f1;        
+            padding: 30px 30px 35px 30px;
+        }
+
+        .data-row {
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+            border-bottom: 1px dashed #b0bec5;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .label {
+            font-weight: 600;
+            min-width: 120px;
+            color: #1e2b37;
+        }
+
+        .value {
+            margin-left: 10px;
+            flex: 1;
+        }
+
+        .tebalkan { font-weight: 700; }
+
+        .warna-npm { color: #c44536; }
+        .warna-nama-lengkap { color: #1e6f5c; }
+        .warna-usia { color: #b6244c; }
+        .warna-alamat { color: #2c5282; }
+        .warna-hobi { color: #744210; }
+
+        .nama-depan {
+            background-color: #fce4ca;
+            padding: 0 6px 0 0;
+            border-radius: 20px 0 0 20px;
+        }
+        .nama-belakang {
+            background-color: #d4e6f1;
+            padding: 0 6px;
+            border-radius: 0 20px 20px 0;
+            margin-left: 2px;
+        }
+
+        .footer-note {
+            text-align: right;
+            font-style: italic;
+            margin-top: 25px;
+            color: #4b5563;
+            border-top: 2px dotted #a0b8c5;
+            padding-top: 12px;
+            font-size: 0.9rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+    </style>
+
+    <script>
+    function bukaKonten(judul, isi) {
+        var win = window.open("", "_blank");
+        win.document.write("<html><head><title>" + judul + "</title></head><body>");
+        win.document.write("<p>" + isi + "</p>");
+        win.document.write("</body></html>");
+    }
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="judul-wrapper">
+            <h1>BIODATAKU</h1>
+        </div>
+
+        <div class="konten-biodata">
+
+            <div class="data-row">
+                <span class="label">NPM</span>
+                <span class="value tebalkan warna-npm">124005067</span>
+            </div>
+
+            <div class="data-row">
+                <span class="label">Nama</span>
+                <span class="value tebalkan warna-nama-lengkap nama-lengkap">
+                    <span class="nama-depan">Muhammad</span>
+                    <span class="nama-belakang">Reisya Wijaya</span>
+                </span>
+            </div>
+
+            <div class="data-row">
+                <span class="label">Usia</span>
+                <span class="value tebalkan warna-usia">22 tahun</span>
+            </div>
+
+            <div class="data-row">
+                <span class="label">Alamat</span>
+                <span class="value warna-alamat">Jl. Ibrahim Adjie No 11</span>
+            </div>
+
+            <div class="data-row">
+                <span class="label">Hobi</span>
+                <span class="value warna-hobi">Sepak Bola</span>
+            </div>
+
+            <!-- MEDIA SOSIAL -->
+            <div class="data-row">
+                <span class="label">Media Sosial</span>
+                <span class="value">
+                    <a href="https://www.instagram.com/reisyawijaya._?igsh=MWFqYXllZWFoaHRwYg==" target="_blank">
+                        reisyawijaya._
+                    </a>
+                </span>
+            </div>
+
+            <!-- HYPERLINK JUDUL -->
+            <div class="data-row">
+                <span class="label">Profil</span>
+                <span class="value">
+
+                    <a href="#" onclick="bukaKonten('Pengalaman Kerja',
+                    'saya pernah bekerja sebagai packing disebuah pt tekstil,saya juga berpengalaman bekerja sebagai admin disebuah gor futsal,kemudian pernah bekerja sebagai clening servis di Lembaga Pelatihan Terapan Panghegar atau Kampus Perhotelan,Saya juga pernah bekerja sebagai teknisi Alat elektronik seperti servis Hp Laptop Ataupun CPU,saya juga pernah bekerja sebagai Security di sebuah sekolah Daarut Tauhid,dan pekerjaan saya sekarang saya bekerja sebagai Chef Di MBG')">
+                    Pengalaman Kerja</a> |
+
+                    <a href="#" onclick="bukaKonten('Bahasa',
+                    'saya menguasai bahasa indonesia,bahasa melayu,bahasa sunda dan bahasa jawa')">
+                    Bahasa</a> |
+
+                    <a href="#" onclick="bukaKonten('Makanan Favorit',
+                    'saya suka dimsum,kwetiau,ayam dan seafood')">
+                    Makanan Favorit</a> |
+
+                    <a href="#" onclick="bukaKonten('Artis Favorit',
+                    'Iwan Fals')">
+                    Artis Favorit</a>
+
+                </span>
+            </div>
+
+            <div class="footer-note">
+                ✦ sudah ditambah hyperlink + tab baru sesuai tugas
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
