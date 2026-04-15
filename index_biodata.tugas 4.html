@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Tugas 1 (Lengkap)</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .judul-wrapper {
+            background-color: #a2266c;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #f1c40f;
+        }
+
+        .judul-wrapper h1 {
+            margin: 0;
+            color: #fff;
+            font-size: 2.4rem;
+        }
+
+        .konten-biodata {
+            background-color: #ecf0f1;
+            padding: 30px;
+        }
+
+        .data-row {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #b0bec5;
+            padding-bottom: 8px;
+        }
+
+        .label {
+            font-weight: bold;
+            display: inline-block;
+            width: 150px;
+        }
+
+        .value {
+            margin-left: 10px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #a2266c;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: white;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #a2266c;
+            color: white;
+        }
+
+        .footer-note {
+            text-align: right;
+            font-style: italic;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+    function bukaKonten(judul, isi) {
+        var win = window.open("", "_blank");
+        win.document.write("<html><head><title>" + judul + "</title></head><body>");
+        win.document.write("<p>" + isi + "</p>");
+        win.document.write("</body></html>");
+    }
+    </script>
+</head>
+
+<body>
+<div class="container">
+
+    <div class="judul-wrapper">
+        <h1>BIODATAKU</h1>
+    </div>
+
+    <div class="konten-biodata">
+
+        <!-- BIODATA -->
+        <div class="data-row">
+            <span class="label">NPM</span>
+            <span class="value">124005067</span>
+        </div>
+
+        <div class="data-row">
+            <span class="label">Nama</span>
+            <span class="value">Muhammad Reisya Wijaya</span>
+        </div>
+
+        <div class="data-row">
+            <span class="label">Usia</span>
+            <span class="value">22 tahun</span>
+        </div>
+
+        <div class="data-row">
+            <span class="label">Alamat</span>
+            <span class="value">Jl. Ibrahim Adjie No 11</span>
+        </div>
+
+        <div class="data-row">
+            <span class="label">Hobi</span>
+            <span class="value">Sepak Bola</span>
+        </div>
+
+        <div class="data-row">
+            <span class="label">Instagram</span>
+            <span class="value">
+                <a href="https://www.instagram.com/reisyawijaya._" target="_blank">reisyawijaya._</a>
+            </span>
+        </div>
+
+        <!-- HYPERLINK -->
+        <div class="data-row">
+            <span class="label">Profil</span>
+            <span class="value">
+                <a href="#" onclick="bukaKonten('Pengalaman Kerja','Pernah bekerja di PT tekstil, admin futsal, cleaning service, teknisi elektronik, security, dan chef.')">Pengalaman</a> |
+                <a href="#" onclick="bukaKonten('Bahasa','Indonesia, Sunda, Jawa')">Bahasa</a> |
+                <a href="#" onclick="bukaKonten('Makanan','Dimsum, Ayam, Seafood')">Makanan</a> |
+                <a href="#" onclick="bukaKonten('Artis','Iwan Fals')">Artis</a>
+            </span>
+        </div>
+
+        <!-- TABEL RIWAYAT -->
+        <div class="data-row">
+            <b>Riwayat Pendidikan</b><br><br>
+
+            <table border="1" cellpadding="10">
+                <tr>
+                    <th>No</th>
+                    <th>Nama Lembaga</th>
+                    <th>Tahun Masuk</th>
+                    <th>Tahun Lulus</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>SD</td>
+                    <td>2008</td>
+                    <td>2014</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>SMP</td>
+                    <td>2014</td>
+                    <td>2017</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>SMK</td>
+                    <td>2017</td>
+                    <td>2020</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- FORM SURVEY -->
+        <div class="data-row">
+            <b>Survey Kepuasan</b><br><br>
+
+            <form method="post">
+                <table>
+                    <tr>
+                        <td>Nama</td>
+                        <td><input type="text" name="nama"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Alamat</td>
+                        <td><input type="text" name="alamat"></td>
+                    </tr>
+
+                    <tr>
+                        <td>No HP</td>
+                        <td><input type="text" name="hp"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Kategori</td>
+                        <td>
+                            <select>
+                                <option>Pelanggan Baru</option>
+                                <option>Pelanggan Lama</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Produk Favorit</td>
+                        <td>
+                            <input type="checkbox"> Dimsum <br>
+                            <input type="checkbox"> Ayam <br>
+                            <input type="checkbox"> Seafood
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Kepuasan</td>
+                        <td>
+                            <input type="radio" name="kepuasan"> Puas <br>
+                            <input type="radio" name="kepuasan"> Cukup <br>
+                            <input type="radio" name="kepuasan"> Tidak
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Komentar</td>
+                        <td><textarea rows="4" cols="30"></textarea></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Kirim">
+                            <input type="reset" value="Reset">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <div class="footer-note">
+            ✦ Tugas lengkap: Biodata + Tabel + Form
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
