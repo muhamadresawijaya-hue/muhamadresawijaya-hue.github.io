@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biodata Reisya</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #e5e5e5;
+        }
+
+        .container {
+            width: 85%;
+            margin: 30px auto;
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 30%;
+            background: linear-gradient(180deg, #2f3e4e, #1c2833);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .profile img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+        }
+
+        .sidebar h2 {
+            margin-top: 15px;
+        }
+
+        .menu {
+            margin-top: 30px;
+        }
+
+        .menu button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .menu button:hover {
+            background: #3498db;
+            transform: scale(1.05);
+        }
+
+        /* CONTENT */
+        .content {
+            width: 70%;
+            padding: 30px;
+            background: #f9f9f9;
+
+            background-image: url("imgase/beruang.jpg"); background-repeat: no-repeat; background-size: cover;
+        }
+
+        .section {
+            display: none;
+            animation: fade 0.5s;
+        }
+
+        .active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        h3 {
+            color: #2f3e4e;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        /* POPUP */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .popup-box {
+            background: white;
+            width: 300px;
+            padding: 20px;
+            margin: 120px auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .close {
+            margin-top: 10px;
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="profile">
+            <img src="foto.jpg">
+            <h2>Muhammad Reisya Wijaya</h2>
+            <p>22 Tahun</p>
+        </div>
+
+        <div class="menu">
+            <button onclick="show('home')">Home</button>
+            <button onclick="show('edu')">Pendidikan</button>
+            <button onclick="show('hobby')">Hobby</button>
+            <button onclick="show('profile')">Profil</button>
+            <button onclick="openPopup()">Contact</button>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div id="home" class="section active">
+            <h3>Biodata</h3>
+            <p><b>NPM:</b> 124005067</p>
+            <p><b>Alamat:</b> Jl. Ibrahim Adjie No 11</p>
+            <p><b>Hobi:</b> Sepak Bola</p>
+            <p><b>Instagram:</b> 
+                <a href="https://www.instagram.com/reisyawijaya._" target="_blank">
+                reisyawijaya._
+                </a>
+            </p>
+        </div>
+
+        <div id="edu" class="section">
+            <h3>Pendidikan</h3>
+            <ul>
+                <li>SD Karawang Wetan III</li>
+                <li>SMP YPI Pasawahan</li>
+                <li>SMA MA K ALMA</li>
+                <li>Universitas Halim Sanusi - Teknik Informatika</li>
+            </ul>
+        </div>
+
+        <div id="hobby" class="section">
+            <h3>Hobby</h3>
+            <ul>
+                <li>Sepak Bola</li>
+                <li>Olahraga</li>
+                <li>Kegiatan Outdoor</li>
+            </ul>
+        </div>
+
+        <div id="profile" class="section">
+            <h3>Profil Tambahan</h3>
+            <p><b>Pengalaman:</b> Pernah bekerja di PT tekstil, admin futsal</p>
+            <p><b>Bahasa:</b> Indonesia, Sunda, Jawa</p>
+            <p><b>Makanan Favorit:</b> Dimsum, Ayam, Seafood</p>
+            <p><b>Artis Favorit:</b> Iwan Fals</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-box">
+        <h3>Kontak</h3>
+        <p>Email: Muhamadreisyawijaya@gmail.com</p>
+        <p>WhatsApp: 083862945532</p>
+        <div class="close" onclick="closePopup()">Tutup</div>
+    </div>
+</div>
+
+<script>
+function show(id) {
+    let sections = document.querySelectorAll('.section');
+    sections.forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
