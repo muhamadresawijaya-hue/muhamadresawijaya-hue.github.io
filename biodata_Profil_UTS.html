@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Reisya Wijaya | Web Profil 3 Halaman</title>
+    <style>
+        /* ============================================= */
+        /* CSS EKSTERNAL (dalam gaya internal untuk 1 file) */
+        /* Mengandung: Background, Text, Font, Table, Transisi & Animasi */
+        /* ============================================= */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ---------- BACKGROUND UTAMA YANG SANGAT MENONJOL & DINAMIS ---------- */
+        body {
+            font-family: 'Poppins', 'Segoe UI', 'Roboto', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0b1a24 0%, #1c3a4f 40%, #2e5c6e 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+            position: relative;
+            animation: bgWaves 14s infinite alternate ease-in-out;
+        }
+
+        /* Animasi background yang dramatis */
+        @keyframes bgWaves {
+            0% {
+                background: linear-gradient(135deg, #0b1a24, #1c3a4f, #2e5c6e);
+            }
+            50% {
+                background: linear-gradient(135deg, #142d3a, #255f6b, #3d8b8f);
+            }
+            100% {
+                background: linear-gradient(135deg, #07222e, #1b4e5e, #24738a);
+            }
+        }
+
+        /* overlay pattern membuat background lebih kaya */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.08"><path fill="none" stroke="%23ffdd99" stroke-width="0.8" d="M10,10 L90,10 M10,20 L90,20 M10,30 L90,30 M10,40 L90,40 M10,50 L90,50 M10,60 L90,60 M10,70 L90,70 M10,80 L90,80 M10,90 L90,90 M20,10 L20,90 M30,10 L30,90 M40,10 L40,90 M50,10 L50,90 M60,10 L60,90 M70,10 L70,90 M80,10 L80,90"/></svg>');
+            background-repeat: repeat;
+            background-size: 32px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* container utama */
+        .container {
+            width: 92%;
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 248, 0.96);
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 35px 60px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255,220,120,0.5);
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(0px);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ========== SIDEBAR KIRI ========== */
+        .sidebar {
+            width: 32%;
+            background: linear-gradient(145deg, #1e2a32 0%, #0a141c 100%);
+            color: #fff6e5;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar::after {
+            content: "✨";
+            font-size: 200px;
+            opacity: 0.08;
+            position: absolute;
+            bottom: -40px;
+            right: -30px;
+            pointer-events: none;
+            transform: rotate(15deg);
+        }
+
+        /* BINGKAI FOTO BULAT (gambar dari link) */
+        .profile-img-wrapper {
+            margin-bottom: 1.2rem;
+            display: flex;
+            justify-content: center;
+        }
+        .profile-pic {
+            width: 155px;
+            height: 155px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffcf6e;
+            box-shadow: 0 18px 28px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, box-shadow 0.3s;
+            background: #f5bc70;
+        }
+        .profile-pic:hover {
+            transform: scale(1.04) rotate(2deg);
+            box-shadow: 0 25px 35px rgba(0, 0, 0, 0.5);
+            border-color: #ffbc3c;
+        }
+
+        .sidebar h2 {
+            font-size: 1.55rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #fff2cf, #ffda88);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .age-tag {
+            font-size: 0.85rem;
+            background: rgba(255,215,130,0.2);
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 40px;
+            margin-top: 10px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* ========== NAVBAR (akses ke 3 halaman) ========== */
+        .navbar {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .nav-link {
+            width: 100%;
+            padding: 12px 12px;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 240, 0.1);
+            color: #fef2df;
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            display: inline-block;
+            backdrop-filter: blur(3px);
+            letter-spacing: 0.6px;
+            font-family: inherit;
+            text-align: center;
+        }
+        .nav-link:hover {
+            background: #f5a623;
+            color: #1e2a2f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+        }
+        .nav-link.active-link {
+            background: #ffb347;
+            color: #1f2c2e;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+        }
+
+        .badge-contact {
+            margin-top: 28px;
+            font-size: 0.7rem;
+            background: rgba(255,200,100,0.2);
+            border-radius: 40px;
+            padding: 6px 12px;
+            display: inline-block;
+        }
+
+        /* ========== KONTEN UTAMA ========== */
+        .content {
+            width: 68%;
+            padding: 2rem 2rem;
+            background: #fffef7;
+            position: relative;
+            background-image: radial-gradient(circle at 15% 30%, rgba(245, 185, 85, 0.1) 2px, transparent 2px);
+            background-size: 32px 32px;
+        }
+
+        /* PAGES (Home, About, Kontak) */
+        .page {
+            display: none;
+            animation: pageFade 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .active-page {
+            display: block;
+        }
+        @keyframes pageFade {
+            from {
+                opacity: 0;
+                transform: translateX(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Pengaturan Text & Font */
+        h3 {
+            color: #2c3a2b;
+            border-left: 7px solid #f3a712;
+            padding-left: 18px;
+            margin-bottom: 1.4rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        .card-info p, .page p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #1f2e34;
+            margin-bottom: 12px;
+        }
+        a {
+            color: #dc6b2c;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #b6450a;
+            text-decoration: underline;
+        }
+
+        /* Pengaturan TABLE (wajib ada di CSS) */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            background: rgba(255,245,220,0.7);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .info-table th, .info-table td {
+            border: 1px solid #e0cba0;
+            padding: 12px 14px;
+            text-align: left;
+        }
+        .info-table th {
+            background: #f3bc6c;
+            color: #2d2b1f;
+            font-weight: 700;
+        }
+        .info-table tr {
+            transition: background 0.2s;
+        }
+        .info-table tr:hover {
+            background: #fff2e0;
+            transform: scale(1.01);
+        }
+
+        /* Form Kontak dengan transisi */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+            background: rgba(250, 242, 225, 0.8);
+            padding: 20px;
+            border-radius: 28px;
+            transition: all 0.3s;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 12px 16px;
+            border: 1px solid #ffcf8e;
+            border-radius: 40px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            background: white;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #f39c12;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(243,156,18,0.2);
+            transform: translateY(-2px);
+        }
+        .submit-btn {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-size: 1rem;
+        }
+        .submit-btn:hover {
+            background: #d35400;
+            transform: scale(1.02);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        }
+        .form-feedback {
+            text-align: center;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        /* TOAST notifikasi transisi */
+        .toast-message {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: #2c3e2f;
+            color: #ffefcf;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 18px black;
+            pointer-events: none;
+        }
+        .toast-message.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            .container {
+                flex-direction: column;
+                width: 98%;
+            }
+            .sidebar, .content {
+                width: 100%;
+            }
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+            h3 {
+                font-size: 1.4rem;
+            }
+            .navbar {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-link {
+                width: auto;
+                padding: 8px 18px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR KIRI (Foto bulat dari link tetap dipertahankan) -->
+    <aside class="sidebar">
+        <div class="profile-img-wrapper">
+            <!-- Gambar dari link yang diberikan -->
+            <img class="profile-pic" src="https://i.ibb.co.com/7J6D17q7/IMG-20260430-WA0007.jpg" alt="Foto Reisya Wijaya" 
+                 onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?background=2f3e4e&color=ffdd99&name=M+Reisya';">
+        </div>
+        <h2>Muhammad Reisya Wijaya</h2>
+        <div class="age-tag">✨ 22 Tahun | Teknik Informatika ✨</div>
+        
+        <!-- NAVBAR untuk 3 halaman (Home, About, Kontak) -->
+        <nav class="navbar">
+            <a href="#" onclick="showPage('home')" class="nav-link" data-page="home">🏠 Home</a>
+            <a href="#" onclick="showPage('about')" class="nav-link" data-page="about">📖 About</a>
+            <a href="#" onclick="showPage('kontak')" class="nav-link" data-page="kontak">📞 Kontak</a>
+        </nav>
+        <div class="badge-contact">📱 IG: @reisyawijaya._  |  🌟 #WebProfil</div>
+    </aside>
+
+    <!-- MAIN CONTENT (3 Halaman) -->
+    <main class="content">
+        <!-- HALAMAN HOME -->
+        <div id="page-home" class="page active-page">
+            <h3>📋 Home / Biodata</h3>
+            <div class="card-info">
+                <p><strong>NPM:</strong> 124005067</p>
+                <p><strong>Alamat:</strong> Jl. Ibrahim Adjie No 11, Karawang</p>
+                <p><strong>Hobi Utama:</strong> Sepak Bola, Olahraga, Outdoor</p>
+                <p><strong>Instagram:</strong> 
+                    <a href="https://www.instagram.com/reisyawijaya._" target="_blank" rel="noopener">@reisyawijaya._</a>
+                </p>
+                <p><strong>📌 Motto:</strong> Bermimpi, berjuang, dan tetap rendah hati.</p>
+            </div>
+            <!-- TABEL 1: Riwayat Pendidikan (pengaturan table di CSS) -->
+            <h3 style="margin-top: 30px;">🎓 Riwayat Pendidikan</h3>
+            <table class="info-table">
+                <tr><th>Jenjang</th><th>Institusi</th><th>Tahun</th></tr>
+                <tr><td>SD</td><td>Karawang Wetan III</td><td>2010-2016</td></tr>
+                <tr><td>SMP</td><td>YPI Pasawahan</td><td>2016-2019</td></tr>
+                <tr><td>SMA</td><td>MA K ALMA</td><td>2019-2022</td></tr>
+                <tr><td>Kuliah</td><td>Universitas Halim Sanusi</td><td>2022-sekarang</td></tr>
+            </table>
+        </div>
+
+        <!-- HALAMAN ABOUT (Profil mendalam) -->
+        <div id="page-about" class="page">
+            <h3>📖 About Me</h3>
+            <div class="card-info">
+                <p><strong>👋 Perkenalan:</strong> Saya Muhammad Reisya Wijaya, mahasiswa Teknik Informatika yang antusias dalam dunia teknologi, olahraga, dan kegiatan outdoor.</p>
+                <p><strong>💼 Pengalaman Kerja:</strong> Admin & operator futsal, Quality Control di PT Tekstil (magang), freelance web developer pemula.</p>
+                <p><strong>⚽ Hobi:</strong> Sepak bola (kapten tim internal), fitness, camping, coding, dan mendengarkan musik (Iwan Fals, indie).</p>
+                <p><strong>🌍 Bahasa:</strong> Indonesia (aktif), Sunda (sehari-hari), Jawa (pasif), Inggris (belajar aktif).</p>
+                <p><strong>🎯 Target 2025:</strong> Menjadi fullstack developer & membangun startup sosial.</p>
+            </div>
+            <!-- TABEL 2: Prestasi -->
+            <h3 style="margin-top: 28px;">🏆 Prestasi & Pelatihan</h3>
+            <table class="info-table">
+                <tr><th>Prestasi</th><th>Tahun</th></tr>
+                <tr><td>Juara 2 Futsal Kab. Karawang</td><td>2023</td></tr>
+                <tr><td>Workshop JavaScript Intermediate</td><td>2024</td></tr>
+                <tr><td>Peserta Active Web Dev Camp</td><td>2024</td></tr>
+                <tr><td>Juara 1 Desain UI/UX Kampus</td><td>2025</td></tr>
+            </table>
+        </div>
+
+        <!-- HALAMAN KONTAK -->
+        <div id="page-kontak" class="page">
+            <h3>📞 Kontak & Media</h3>
+            <div class="card-info">
+                <p><strong>📧 Email:</strong> Muhamadreisyawijaya@gmail.com</p>
+                <p><strong>📱 WhatsApp:</strong> 083862945532</p>
+                <p><strong>📸 Instagram:</strong> <a href="https://www.instagram.com/reisyawijaya._" target="_blank">@reisyawijaya._</a></p>
+                <p><strong>💻 GitHub:</strong> github.com/reisya-wijaya (portofolio segera)</p>
+            </div>
+            <!-- Form simulasi kontak -->
+            <h3 style="margin-top: 22px;">📝 Kirim Pesan Langsung</h3>
+            <form id="contactForm" class="contact-form">
+                <input type="text" placeholder="Nama lengkap" id="namaForm" required>
+                <input type="email" placeholder="Email atau No. HP" id="emailForm" required>
+                <textarea rows="4" placeholder="Tulis pesan untuk Reisya ..." id="pesanForm" required></textarea>
+                <button type="submit" class="submit-btn">Kirim Pesan 🚀</button>
+                <p class="form-feedback" id="formFeedback"></p>
+            </form>
+            <!-- TABEL 3: estimasi balas -->
+            <h3 style="margin-top: 30px;">⏰ Waktu Respon</h3>
+            <table class="info-table">
+                <tr><th>Platform</th><th>Estimasi Balas</th></tr>
+                <tr><td>WhatsApp</td><td>1-3 jam</td></tr>
+                <tr><td>Email</td><td>maks 12 jam</td></tr>
+                <tr><td>Instagram DM</td><td>2-5 jam</td></tr>
+            </table>
+        </div>
+    </main>
+</div>
+
+<!-- TOAST NOTIFIKASI TRANSISI -->
+<div id="toastMsg" class="toast-message">✨ Halaman berubah ✨</div>
+
+<script>
+    // Fungsi untuk navigasi antar halaman Home, About, Kontak + animasi
+    function showPage(pageId) {
+        // Sembunyikan semua halaman
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active-page'));
+        
+        // Tampilkan halaman yang dipilih
+        const activePage = document.getElementById(`page-${pageId}`);
+        if (activePage) {
+            activePage.classList.add('active-page');
+        } else {
+            document.getElementById('page-home').classList.add('active-page');
+        }
+        
+        // Update active class pada navbar link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active-link');
+            if(link.getAttribute('data-page') === pageId) {
+                link.classList.add('active-link');
+            }
+        });
+        
+        // Tampilkan toast dengan transisi & animasi
+        const toast = document.getElementById('toastMsg');
+        if(pageId === 'home') toast.textContent = '🏠 Home | Biodata diri ditampilkan';
+        else if(pageId === 'about') toast.textContent = '📖 About | Profil & prestasi muncul';
+        else toast.textContent = '📞 Kontak | Form dan info kontak siap';
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 1600);
+        
+        // Smooth scroll ke bagian konten
+        document.querySelector('.content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    // Form kontak dengan validasi + feedback
+    const contactForm = document.getElementById('contactForm');
+    if(contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nama = document.getElementById('namaForm').value.trim();
+            const email = document.getElementById('emailForm').value.trim();
+            const pesan = document.getElementById('pesanForm').value.trim();
+            const feedbackDiv = document.getElementById('formFeedback');
+            
+            if(nama === '' || email === '' || pesan === '') {
+                feedbackDiv.textContent = '❌ Semua kolom harus diisi!';
+                feedbackDiv.style.color = '#c0392b';
+                setTimeout(() => { feedbackDiv.textContent = ''; }, 2600);
+                return;
+            }
+            feedbackDiv.textContent = `✅ Terima kasih ${nama}, pesanmu berhasil terkirim! (simulasi)`;
+            feedbackDiv.style.color = '#2c6e2c';
+            contactForm.reset();
+            setTimeout(() => { feedbackDiv.textContent = ''; }, 3000);
+        });
+    }
+    
+    // Menandai active link Home saat pertama load
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('.nav-link[data-page="home"]').classList.add('active-link');
+        console.log('Web profil 3 halaman - Background menonjol, tabel, transisi, animasi aktif ✅');
+        
+        // efek tambahan: animasi hover background (sudah ada)
+    });
+</script>
+</body>
+</html>
